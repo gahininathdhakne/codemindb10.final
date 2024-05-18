@@ -65,4 +65,9 @@ public class CommonUtils {
 		 File file = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		 FileUtils.copyFile(file, new File("src/test/resources/codemindScreenshots/ "+name+System.currentTimeMillis()+".png"));
 	 }
+	 
+	 public static void readProperty()
+	 {
+		 
+	 }
 }

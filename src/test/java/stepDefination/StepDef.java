@@ -12,6 +12,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class StepDef {
 
@@ -19,7 +20,7 @@ public class StepDef {
 	@Given("launch application")
 	public void launch_application()
 	{
-		//WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
 	    driver = new ChromeDriver();
 	    driver.manage().window().maximize();
 	    driver.get("https://demo.guru99.com/test/newtours/index.php");
@@ -46,8 +47,8 @@ public class StepDef {
 	@Then("verify is user successfully logged in")
 	public void verifyUserLoggedIn()
 	{
-		Object text = ((WebElement) driver.findElements(By.xpath("//h3[text()='Login Successfully']"))).getText();
+		String text = driver.findElement(By.xpath("//h3[text()='Login Successfully']")).getText();
 		Assert.assertEquals(text, "Login Successfully");
-		//Assert.assertEquals(driver.findElements(By.xpath("//h3[text()='Login Successfully']")).getText, "Login Successfully");
+	//Assert.assertEquals(driver.findElements(By.xpath("//h3[text()='Login Successfully']")).getText, "Login Successfully");
 	}
 }
